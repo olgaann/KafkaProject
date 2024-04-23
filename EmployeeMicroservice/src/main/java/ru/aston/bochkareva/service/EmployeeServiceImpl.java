@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import ru.aston.bochkareva.dto.CreateEmployeeDto;
 import ru.aston.bochkareva.entity.Employee;
 import ru.aston.bochkareva.event.EmployeeCreatedEvent;
-import ru.aston.bochkareva.exception.handler.CustomKafkaException;
+import ru.aston.bochkareva.exception.CustomKafkaException;
 import ru.aston.bochkareva.mapper.EmployeeMapper;
 import ru.aston.bochkareva.repository.EmployeeRepository;
 
@@ -20,6 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     private final EmployeeRepository employeeRepository;
     private final KafkaTemplate<String, EmployeeCreatedEvent> kafkaTemplate;
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
     @Override
     public String createEmployee(CreateEmployeeDto createEmployeeDto) {
         Employee employee = employeeMapper.mapCreateEmployeeDTOToEmployee(createEmployeeDto);
