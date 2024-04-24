@@ -73,7 +73,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId> ru.aston.bochkareva.core</groupId>
 			<artifactId>core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

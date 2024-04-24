@@ -31,6 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-TaskMicroservice/.mvn/
-TaskMicroservice/mvnw
-TaskMicroservice/mvnw.cmd

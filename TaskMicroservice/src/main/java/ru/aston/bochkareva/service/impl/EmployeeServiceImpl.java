@@ -1,15 +1,17 @@
-package ru.aston.bochkareva.service;
+package ru.aston.bochkareva.service.impl;
 
-import com.example.core.EmployeeCreatedEvent;
+import ru.aston.bochkareva.core.EmployeeCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.aston.bochkareva.entity.Employee;
 import ru.aston.bochkareva.entity.Task;
 import ru.aston.bochkareva.repository.EmployeeRepository;
+import ru.aston.bochkareva.service.EmployeeService;
+import ru.aston.bochkareva.service.TaskService;
 
 @Service
 @RequiredArgsConstructor
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final TaskService taskService;
     @Override

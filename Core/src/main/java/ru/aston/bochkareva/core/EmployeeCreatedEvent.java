@@ -1,4 +1,4 @@
-package com.example.core;
+package ru.aston.bochkareva.core;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

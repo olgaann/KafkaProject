@@ -1,6 +1,6 @@
 package ru.aston.bochkareva.config;
 
-import com.example.core.EmployeeCreatedEvent;
+import ru.aston.bochkareva.core.EmployeeCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.apache.kafka.clients.admin.NewTopic;

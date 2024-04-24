@@ -1,9 +1,8 @@
 package ru.aston.bochkareva.service;
 
-import com.example.core.EmployeeCreatedEvent;
+import lombok.extern.slf4j.Slf4j;
+import ru.aston.bochkareva.core.EmployeeCreatedEvent;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
@@ -15,11 +14,12 @@ import ru.aston.bochkareva.repository.EmployeeRepository;
 
 @Service
 @RequiredArgsConstructor
-public class EmployeeServiceImpl implements EmployeeService{
+@Slf4j
+public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeMapper employeeMapper;
     private final EmployeeRepository employeeRepository;
     private final KafkaTemplate<String, EmployeeCreatedEvent> kafkaTemplate;
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
 
     @Override
     public String createEmployee(CreateEmployeeDto createEmployeeDto) {
@@ -30,15 +30,15 @@ public class EmployeeServiceImpl implements EmployeeService{
         SendResult<String, EmployeeCreatedEvent> result;
         try {
             result = kafkaTemplate
-                    .send("employee-created-events-topic",employeeCreatedEvent).get();
-        } catch (Exception e){
+                    .send("employee-created-events-topic", employeeCreatedEvent).get();
+        } catch (Exception e) {
             String message = e.getMessage();
             throw new CustomKafkaException(message);
         }
 
-        LOGGER.info("Topic: {}", result.getRecordMetadata().topic());
-        LOGGER.info("Partition: {}", result.getRecordMetadata().partition());
-        LOGGER.info("Return: {}", employee.toString());
+        log.info("Topic: {}", result.getRecordMetadata().topic());
+        log.info("Partition: {}", result.getRecordMetadata().partition());
+        log.info("Return: {}", employee.toString());
 
         return String.join(" ", employee.getName(), employee.getSurname());
     }
