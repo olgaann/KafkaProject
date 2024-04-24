@@ -1,8 +1,8 @@
 package ru.aston.bochkareva.config;
 
+import com.example.core.EmployeeCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
-import ru.aston.bochkareva.event.EmployeeCreatedEvent;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

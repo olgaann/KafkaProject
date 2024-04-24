@@ -2,7 +2,8 @@ package ru.aston.bochkareva.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.aston.bochkareva.entity.Employee;
+import ru.aston.bochkareva.entity.Task;
+
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface TaskRepository extends JpaRepository<Task, Long> {
 }
