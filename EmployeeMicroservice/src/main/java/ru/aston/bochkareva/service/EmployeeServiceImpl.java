@@ -30,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         SendResult<String, EmployeeCreatedEvent> result;
         try {
             result = kafkaTemplate
-                    .send("employee-created-events-topic", employeeCreatedEvent).get();
+                    .send("employee-created-events-topic", "someKey", employeeCreatedEvent).get();
         } catch (Exception e) {
             String message = e.getMessage();
             throw new CustomKafkaException(message);
